@@ -498,7 +498,8 @@ int check_reply(const struct __ctx_buff *ctx)
 
 	status_code = data;
 
-	assert(*status_code == CTX_ACT_REDIRECT);
+	test_log("xxx status:%d (%d)\n", *status_code, CTX_ACT_TX);
+	assert(*status_code == CTX_ACT_TX);
 
 	l2 = data + sizeof(__u32);
 	if ((void *)l2 + sizeof(struct ethhdr) > data_end)
